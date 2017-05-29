@@ -23,14 +23,15 @@ public class Token {
   */
   // b = +-a^+6
   public long zp(long a, String b){
-    
     long d = 0;
-    for(int i = 0; i<b.length()-2; i +=3){
+    for(int i = 0; i<b.length()-2; i+=3){
       String c = "" + b.charAt(i+2);
       d = b.charAt(i+2);
       d = ("a".codePointAt(0)<= d ? c.codePointAt(0) -87 : Long.parseLong(c));
-      d = ("+".equals(b.charAt(i+1))) ? a>>>d : a<<d;
-      a = ("+".equals(b.charAt(i))) ? a + d & 4294967295L : a ^ d;
+      String x = "" + b.charAt(i+1);
+      d = ("+".equals(x)) ? a>>>d : a<<d;
+      String y = "" + b.charAt(i);
+      a = ("+".equals(y)) ? a + d & 4294967295L : a ^ d;
     }
     
     return a;
@@ -65,22 +66,28 @@ public class Token {
     long a = 0;
     
     for(int i = 0; i < f.size(); i++){
+      System.out.println("a loop " + i + " : " + a);
       a += Long.parseLong(f.get(i).toString());
       a = this.zp(a, "+-a^+6");
     }
     
     a = this.zp(a, "+-3^+b+-f");
     
+    a ^= 100;
+    
+    if(0>a){
+      a = ((a & 2147483647L) + 2147483648L);
+    }
     a %= 1E6;
     
-    System.out.println(a);
+    System.out.println("a : " + a);
   }
   
   
   public static void main(String[] args){
     Token token = new Token();
-    token.bp("test");
-    System.out.println("116 zp : " + token.zp(116, "+-a^+6"));
+    // System.out.println("120730 zp : " + token.zp(120730, "+-a^+6"));
+    token.bp("just");
   }
   
 }
