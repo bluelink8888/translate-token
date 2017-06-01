@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Token {
   
+  private Tkk tkk = new Tkk();
+  
+  
   // b = +-a^+6
   public long zp(long a, String b){
     long d = 0;
@@ -27,7 +30,6 @@ public class Token {
     
     for(int i = 0; i < t.length();i++){
       int l = t.codePointAt(i);
-      
       if(128 > l){
         f.add(l);
       }else{
@@ -47,12 +49,15 @@ public class Token {
       }
     }
     
+    /*
+     * tkks 是把google翻譯上的參數抓下來 (tkk=eval...)
+     */
+    List<Long> tkks = tkk.getTkkArray();
     
-    // TKK=eval('((function(){var a\x3d  4076708441;var b\x3d  580142;return   415640  +\x27.\x27+(a+b)})())')
+    long tkk1 = tkks.get(0);
+    long tkk2 = tkks.get(1) + tkks.get(2);
     
-    long tkk1 = 415640;
-    long tkk2 = 4076708441L+580142L;
-    
+    // js上的 a=b那段落，此處b=tkk1
     long a = tkk1;
     
     for(int i = 0; i < f.size(); i++){
@@ -61,7 +66,7 @@ public class Token {
     }
     
     a = this.zp(a, "+-3^+b+-f");
-    
+    // a ^= 4205931333 || 0;
     a ^= tkk2;
     
     if(0>a){
@@ -69,14 +74,7 @@ public class Token {
     }
     a %= 1E6;
     
-    // System.out.println("a : " + a + "." + (a^tkk1));
-    
     return a + "." + (a^tkk1);
-  }
-  
-  public static void main(String[] args){
-    Token token = new Token();
-    System.out.println(token.bp("test"));
   }
   
 }

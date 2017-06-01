@@ -14,9 +14,13 @@ public class Client {
 
   public static void main(String[] args) {
 
+    Token token = new Token();
+    
+    String target = "problem";
+    
     String googleUrl = "https://translate.google.com.tw/translate_a/single?"
         + "client=t&sl=en&tl=zh-TW&hl=zh-TW&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&swap=1&source=btn&ssel=5&tsel=5&kc=0&"
-        + "tk=798453.686445&q=test";
+        + "tk=" + token.bp(target) + "&q=" + target;
 
     HttpClient client = HttpClientBuilder.create().build();
     HttpGet req = new HttpGet(googleUrl);
