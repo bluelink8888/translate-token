@@ -47,6 +47,9 @@ public class Token {
       }
     }
     
+    
+    // TKK=eval('((function(){var a\x3d  4076708441;var b\x3d  580142;return   415640  +\x27.\x27+(a+b)})())')
+    
     long tkk1 = 415640;
     long tkk2 = 4076708441L+580142L;
     
