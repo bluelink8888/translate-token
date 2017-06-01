@@ -10,17 +10,6 @@ public class Token {
     return a;
   }
   
-  /*
-  zp = function (a, b) {
-        for (var c = 0; c < b.length - 2; c += 3) {
-            var d = b.charAt(c + 2)
-                , d = "a" <= d ? d.charCodeAt(0) - 87 : Number(d)
-                , d = "+" == b.charAt(c + 1) ? a >>> d : a << d;
-            a = "+" == b.charAt(c) ? a + d & 4294967295 : a ^ d
-        }
-        return a
-    };
-  */
   // b = +-a^+6
   public long zp(long a, String b){
     long d = 0;
@@ -37,7 +26,7 @@ public class Token {
     return a;
   }
   
-  public void bp(String t){
+  public String bp(String t){
     
     List<Integer> f = new LinkedList<Integer>();
     
@@ -63,31 +52,33 @@ public class Token {
       }
     }
     
-    long a = 0;
+    long tkk1 = 415640;
+    long tkk2 = 4076708441L+580142L;
+    
+    long a = tkk1;
     
     for(int i = 0; i < f.size(); i++){
-      System.out.println("a loop " + i + " : " + a);
       a += Long.parseLong(f.get(i).toString());
       a = this.zp(a, "+-a^+6");
     }
     
     a = this.zp(a, "+-3^+b+-f");
     
-    a ^= 100;
+    a ^= tkk2;
     
     if(0>a){
       a = ((a & 2147483647L) + 2147483648L);
     }
     a %= 1E6;
     
-    System.out.println("a : " + a);
+    // System.out.println("a : " + a + "." + (a^tkk1));
+    
+    return a + "." + (a^tkk1);
   }
-  
   
   public static void main(String[] args){
     Token token = new Token();
-    // System.out.println("120730 zp : " + token.zp(120730, "+-a^+6"));
-    token.bp("just");
+    System.out.println(token.bp("test"));
   }
   
 }
