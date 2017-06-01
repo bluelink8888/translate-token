@@ -1,14 +1,9 @@
 package org.yuwei.google_translate;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Token {
-  
-  public Object yp(Object a){
-    
-    return a;
-  }
   
   // b = +-a^+6
   public long zp(long a, String b){
@@ -28,7 +23,7 @@ public class Token {
   
   public String bp(String t){
     
-    List<Integer> f = new LinkedList<Integer>();
+    List<Integer> f = new ArrayList<Integer>();
     
     for(int i = 0; i < t.length();i++){
       int l = t.codePointAt(i);
