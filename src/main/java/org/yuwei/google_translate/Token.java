@@ -7,8 +7,6 @@ public class Token {
   
   private Tkk tkk = new Tkk();
   
-  
-  // b = +-a^+6
   public long zp(long a, String b){
     long d = 0;
     for(int i = 0; i<b.length()-2; i+=3){
@@ -50,14 +48,13 @@ public class Token {
     }
     
     /*
-     * tkks 是把google翻譯上的參數抓下來 (tkk=eval...)
+     * tkks is crewler from google translate page (tkk=eval...)
      */
     List<Long> tkks = tkk.getTkkArray();
     
     long tkk1 = tkks.get(0);
     long tkk2 = tkks.get(1) + tkks.get(2);
     
-    // js上的 a=b那段落，此處b=tkk1
     long a = tkk1;
     
     for(int i = 0; i < f.size(); i++){
@@ -66,7 +63,6 @@ public class Token {
     }
     
     a = this.zp(a, "+-3^+b+-f");
-    // a ^= 4205931333 || 0;
     a ^= tkk2;
     
     if(0>a){

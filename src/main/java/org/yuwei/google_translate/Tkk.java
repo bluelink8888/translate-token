@@ -14,7 +14,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 public class Tkk {
   
-  
   public List<Long> getTkkArray(){
     
     String htmlUrl = "https://translate.google.com.tw/";
