@@ -1,29 +1,23 @@
 package org.yuwei.google_translate;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Token {
-  
-  private Tkk tkk = new Tkk();
-  
-  public long zp(long a, String b){
-    long d = 0;
-    for(int i = 0; i<b.length()-2; i+=3){
-      String c = "" + b.charAt(i+2);
-      d = b.charAt(i+2);
-      d = ("a".codePointAt(0)<= d ? c.codePointAt(0) -87 : Long.parseLong(c));
-      String x = "" + b.charAt(i+1);
-      d = ("+".equals(x)) ? a>>>d : a<<d;
-      String y = "" + b.charAt(i);
-      a = ("+".equals(y)) ? a + d & 4294967295L : a ^ d;
-    }
-    
-    return a;
+import org.apache.http.client.ClientProtocolException;
+import org.yuwei.translate.Token;
+
+public class TokenImpl extends Token{
+
+  public TokenImpl() throws ClientProtocolException, IOException {
+    super();
   }
   
-  public String bp(String t){
+  @Override
+  public String getToken(String t) {
     
+    List<Long> tkArray = this.getTkArray();
+  
     List<Integer> f = new ArrayList<Integer>();
     
     for(int i = 0; i < t.length();i++){
@@ -47,13 +41,8 @@ public class Token {
       }
     }
     
-    /*
-     * tkks is crewler from google translate page (tkk=eval...)
-     */
-    List<Long> tkks = tkk.getTkkArray();
-    
-    long tkk1 = tkks.get(0);
-    long tkk2 = tkks.get(1) + tkks.get(2);
+    long tkk1 = tkArray.get(0);
+    long tkk2 = tkArray.get(1) + tkArray.get(2);
     
     long a = tkk1;
     
@@ -72,5 +61,19 @@ public class Token {
     
     return a + "." + (a^tkk1);
   }
-  
+
+  private long zp(long a, String b){
+    long d = 0;
+    for(int i = 0; i<b.length()-2; i+=3){
+      String c = "" + b.charAt(i+2);
+      d = b.charAt(i+2);
+      d = ("a".codePointAt(0)<= d ? c.codePointAt(0) -87 : Long.parseLong(c));
+      String x = "" + b.charAt(i+1);
+      d = ("+".equals(x)) ? a>>>d : a<<d;
+      String y = "" + b.charAt(i);
+      a = ("+".equals(y)) ? a + d & 4294967295L : a ^ d;
+    }
+    
+    return a;
+  }
 }
