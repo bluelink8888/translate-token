@@ -1,4 +1,4 @@
-package org.yuwei.constant;
+package com.github.bluelink8888.constant;
 
 public enum Language {
 

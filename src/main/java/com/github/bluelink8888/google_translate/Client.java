@@ -1,4 +1,4 @@
-package org.yuwei.google_translate;
+package com.github.bluelink8888.google_translate;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,6 +10,8 @@ import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+
+import com.github.bluelink8888.translate.TokenImpl;
 
 public class Client {
 

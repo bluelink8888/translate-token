@@ -1,23 +1,22 @@
-package org.yuwei.google_translate;
+package com.github.bluelink8888.translate;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
-import org.yuwei.translate.Token;
 
 public class TokenImpl extends Token{
+  
+  private List<Long> tkArray;
 
   public TokenImpl() throws ClientProtocolException, IOException {
     super();
+    tkArray = this.getTkArray();
   }
   
   @Override
   public String getToken(String t) {
-    
-    List<Long> tkArray = this.getTkArray();
-  
     List<Integer> f = new ArrayList<Integer>();
     
     for(int i = 0; i < t.length();i++){

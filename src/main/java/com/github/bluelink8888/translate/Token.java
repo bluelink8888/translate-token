@@ -1,4 +1,4 @@
-package org.yuwei.translate;
+package com.github.bluelink8888.translate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
