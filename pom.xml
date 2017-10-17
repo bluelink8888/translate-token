@@ -5,7 +5,9 @@
   <artifactId>google-translate</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
+  
   <name>google-translate</name>
+  <description>Google translate token generator</description>
   <url>https://github.com/bluelink8888/translate-token</url>
   <licenses>
     <license>
