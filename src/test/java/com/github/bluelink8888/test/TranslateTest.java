@@ -21,9 +21,7 @@ import com.github.bluelink8888.translate.TokenImpl;
 
 public class TranslateTest {
   
-  
   private TokenImpl tokenImpl;
-  
   
   @Before
   public void beforeTest(){
@@ -39,9 +37,7 @@ public class TranslateTest {
   @Test
   public void basicTest(){
     try {
-      String token = tokenImpl.getToken("");
-      System.out.println(token);
-      Assert.assertNotNull(token);
+      Assert.assertNotNull(tokenImpl.getToken(""));
     } catch (Exception e) {
       e.printStackTrace();
     }
