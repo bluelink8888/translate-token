@@ -1,16 +1,13 @@
 package com.github.bluelink8888.translate;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.http.client.ClientProtocolException;
 
 public class TokenImpl extends Token{
   
   private List<Long> tkArray;
 
-  public TokenImpl() throws ClientProtocolException, IOException {
+  public TokenImpl() {
     super();
     tkArray = this.getTkArray();
   }

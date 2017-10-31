@@ -1,7 +1,6 @@
 package com.github.bluelink8888.test;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -9,7 +8,6 @@ import java.net.URLEncoder;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -20,41 +18,35 @@ import org.junit.Test;
 import com.github.bluelink8888.translate.TokenImpl;
 
 public class TranslateTest {
-  
+
   private TokenImpl tokenImpl;
-  
+
   @Before
-  public void beforeTest(){
-    try {
-      tokenImpl = new TokenImpl();
-    } catch (ClientProtocolException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+  public void beforeTest() {
+    tokenImpl = new TokenImpl();
   }
-  
+
   @Test
-  public void basicTest(){
+  public void basicTest() {
     try {
       Assert.assertNotNull(tokenImpl.getToken(""));
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
-  
+
   @Test
-  public void translateTest(){
-    
+  public void translateTest() {
+
     String target = "no problem";
     String googleUrl = "";
     try {
       googleUrl = "https://translate.google.com.tw/translate_a/single?"
           + "client=t&sl=en&tl=zh-TW&hl=zh-TW"
           + "&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t"
-          + "&ie=UTF-8&oe=UTF-8"
-          + "&swap=1&source=btn&ssel=5&tsel=5&kc=0"
-          + "&tk=" + tokenImpl.getToken(target) + "&q=" + URLEncoder.encode(target, "UTF-8");
+          + "&ie=UTF-8&oe=UTF-8" + "&swap=1&source=btn&ssel=5&tsel=5&kc=0"
+          + "&tk=" + tokenImpl.getToken(target) + "&q="
+          + URLEncoder.encode(target, "UTF-8");
     } catch (UnsupportedEncodingException e1) {
       e1.printStackTrace();
     }
@@ -75,14 +67,13 @@ public class TranslateTest {
           sb.append(line);
         }
         System.out.println(sb.toString());
-      }else{
+      } else {
         System.out.println("failure");
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
-    
-    
+
   }
-  
+
 }
