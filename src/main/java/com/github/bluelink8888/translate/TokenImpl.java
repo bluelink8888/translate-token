@@ -3,6 +3,11 @@ package com.github.bluelink8888.translate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author YuWeiHung
+ *
+ */
 public class TokenImpl extends Token{
   
   private List<Long> tkArray;
@@ -12,6 +17,9 @@ public class TokenImpl extends Token{
     tkArray = this.getTkArray();
   }
   
+  /**
+   * this method get google translate needs tk param
+   */
   @Override
   public String getToken(String t) {
     List<Integer> f = new ArrayList<Integer>();
@@ -58,6 +66,9 @@ public class TokenImpl extends Token{
     return a + "." + (a^tkk1);
   }
 
+  /**
+   * this method from google translate calculate tk param 
+   */
   private long zp(long a, String b){
     long d = 0;
     for(int i = 0; i<b.length()-2; i+=3){

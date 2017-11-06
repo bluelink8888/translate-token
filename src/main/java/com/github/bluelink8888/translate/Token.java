@@ -12,6 +12,11 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
+/**
+ * This class design for google translate, will get param before calculate tk param 
+ * @author YuWeiHung
+ *
+ */
 public abstract class Token {
 
   private String googleUrl = "https://translate.google.com.tw/";
@@ -22,6 +27,10 @@ public abstract class Token {
     tkArray = this.getGoogleArray();
   }
 
+  /**
+   * This method get param from google translate website page, will return calculate tk needs param
+   * @return
+   */
   private List<Long> getGoogleArray() {
 
     HttpClient client = HttpClientBuilder.create().build();

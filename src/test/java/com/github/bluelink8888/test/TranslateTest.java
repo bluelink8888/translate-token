@@ -17,15 +17,26 @@ import org.junit.Test;
 
 import com.github.bluelink8888.translate.TokenImpl;
 
+/**
+ * For test
+ * @author YuWeiHung
+ *
+ */
 public class TranslateTest {
 
   private TokenImpl tokenImpl;
 
+  /**
+   * Init setting 
+   */
   @Before
   public void beforeTest() {
     tokenImpl = new TokenImpl();
   }
 
+  /**
+   * Test token is null or not
+   */
   @Test
   public void basicTest() {
     try {
@@ -35,6 +46,9 @@ public class TranslateTest {
     }
   }
 
+  /**
+   * Test translate work or not
+   */
   @Test
   public void translateTest() {
 

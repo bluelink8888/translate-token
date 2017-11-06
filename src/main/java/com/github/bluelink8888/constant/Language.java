@@ -1,5 +1,10 @@
 package com.github.bluelink8888.constant;
 
+/**
+ * This design for different language params
+ * @author YuWeiHung
+ *
+ */
 public enum Language {
 
   ENGLISH("英文", "en"),
