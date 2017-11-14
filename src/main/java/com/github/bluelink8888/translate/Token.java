@@ -19,7 +19,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
  */
 public abstract class Token {
 
-  private String googleUrl = "https://translate.google.com.tw/";
+  private String googleUrl = "https://translate.google.com/";
 
   private List<Long> tkArray;
 
