@@ -9,7 +9,13 @@ public enum Language {
 
   ENGLISH("英文", "en"),
   
-  JAPAN("日文", "ja"),
+  FRENCH("法文", "fr"),
+  
+  GERMAN("德文" , "de"),
+  
+  JAPANESE("日文", "ja"),
+  
+  KOREAN("韓文", "ko"),
   
   TRADITIONAL_CHINESE("繁體中文", "zh-TW"),
   

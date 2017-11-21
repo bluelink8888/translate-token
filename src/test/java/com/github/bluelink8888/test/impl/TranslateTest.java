@@ -1,4 +1,4 @@
-package com.github.bluelink8888.test;
+package com.github.bluelink8888.test.impl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,16 +15,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.github.bluelink8888.constant.Language;
 import com.github.bluelink8888.translate.TokenImpl;
 
 /**
  * For test
  * @author YuWeiHung
- *
  */
 public class TranslateTest {
 
   private TokenImpl tokenImpl;
+  
+  private String failure;
 
   /**
    * Init setting 
@@ -32,6 +34,7 @@ public class TranslateTest {
   @Before
   public void beforeTest() {
     tokenImpl = new TokenImpl();
+    failure = "failure";
   }
 
   /**
@@ -53,10 +56,38 @@ public class TranslateTest {
   public void translateTest() {
 
     String target = "no problem";
+    String result = this.translate(target, Language.ENGLISH, Language.TRADITIONAL_CHINESE);
+    Assert.assertNotEquals(failure, result);
+  }
+  
+  
+  /**
+   * Test all Language can translate
+   */
+  @Test
+  public void translateLanguage(){
+    String target = "test";
+    for(Language language : Language.values()){
+      Assert.assertNotEquals(failure, this.translate(target, Language.ENGLISH, language));
+    }
+  }
+
+  /**
+   * Translate feature through google service
+   * @param target
+   * @param sl means your target String language
+   * @param tl means your result String language
+   * @return translate result
+   */
+  public String translate(String target, Language sl, Language tl){
+    String result = "";
     String googleUrl = "";
     try {
       googleUrl = "https://translate.google.com.tw/translate_a/single?"
-          + "client=t&sl=en&tl=zh-TW&hl=zh-TW"
+          + "client=t&"
+          + "sl=" + sl.getValue() + "&"
+          + "tl=" + tl.getValue() + "&"
+          + "hl=" + Language.TRADITIONAL_CHINESE.getValue()
           + "&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t"
           + "&ie=UTF-8&oe=UTF-8" + "&swap=1&source=btn&ssel=5&tsel=5&kc=0"
           + "&tk=" + tokenImpl.getToken(target) + "&q="
@@ -80,14 +111,13 @@ public class TranslateTest {
         while ((line = bf.readLine()) != null) {
           sb.append(line);
         }
-        System.out.println(sb.toString());
+        result = sb.toString().substring(4, sb.toString().indexOf(",")-1);
       } else {
-        System.out.println("failure");
+        result = failure;
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
-
+    return result;
   }
-
 }
