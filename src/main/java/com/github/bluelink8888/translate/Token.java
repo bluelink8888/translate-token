@@ -29,6 +29,7 @@ public abstract class Token {
 
   /**
    * This method get param from google translate website page, will return calculate tk needs param
+   * Cause google hide param in javascript code
    * @return
    */
   private List<Long> getGoogleArray() {
@@ -74,6 +75,7 @@ public abstract class Token {
 
     List<Long> result = new ArrayList<Long>();
 
+    // Split String from google website
     for (int i = (tkks.length - 1); i >= 0; i--) {
       long temp = 0;
       if (i == 2) {

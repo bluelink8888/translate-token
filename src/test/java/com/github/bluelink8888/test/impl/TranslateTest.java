@@ -16,7 +16,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.bluelink8888.constant.Language;
-import com.github.bluelink8888.translate.TokenImpl;
+import com.github.bluelink8888.translate.Token;
+import com.github.bluelink8888.translate.impl.TokenImpl;
 
 /**
  * For test
@@ -24,7 +25,7 @@ import com.github.bluelink8888.translate.TokenImpl;
  */
 public class TranslateTest {
 
-  private TokenImpl tokenImpl;
+  private Token tokenImpl;
   
   private String failure;
 

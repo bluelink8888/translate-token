@@ -1,10 +1,12 @@
-package com.github.bluelink8888.translate;
+package com.github.bluelink8888.translate.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.bluelink8888.translate.Token;
+
 /**
- * 
+ * This class implement Token, main feature is calculator token param
  * @author YuWeiHung
  *
  */
@@ -18,7 +20,8 @@ public class TokenImpl extends Token{
   }
   
   /**
-   * this method get google translate needs tk param
+   * This method get google translate needs tk param,
+   * actually final result is number, prevent exception happen so choose return string
    */
   @Override
   public String getToken(String t) {
