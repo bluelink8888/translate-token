@@ -1,4 +1,4 @@
-package com.github.bluelink8888.test.impl;
+package com.github.bluelink8888.test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,6 +18,7 @@ import org.junit.Test;
 import com.github.bluelink8888.constant.Language;
 import com.github.bluelink8888.translate.Token;
 import com.github.bluelink8888.translate.impl.TokenImpl;
+import com.github.bluelink8888.translate.impl.TranslateImpl;
 
 /**
  * For test
@@ -72,7 +73,19 @@ public class TranslateTest {
       Assert.assertNotEquals(failure, this.translate(target, Language.ENGLISH, language));
     }
   }
+  
+  /**
+   * Test default method will return same result with implement method
+   */
+  @Test
+  public void translateMethodTest(){
+    String target = "test";
 
+    Assert.assertEquals(TranslateImpl.create().translate(target), 
+        TranslateImpl.create().translate(target, Language.ENGLISH, Language.TRADITIONAL_CHINESE));
+  }
+  
+  
   /**
    * Translate feature through google service
    * @param target
