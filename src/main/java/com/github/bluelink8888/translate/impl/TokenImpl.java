@@ -7,6 +7,7 @@ import com.github.bluelink8888.translate.Token;
 
 /**
  * This class implement Token, main feature is calculator token param
+ * Token actually just need get once before u translate.
  * @author YuWeiHung
  *
  */
