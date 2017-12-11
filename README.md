@@ -2,5 +2,10 @@ Google Translate-token [![Build Status](https://travis-ci.org/bluelink8888/trans
 ## Overview
 This project target is produce token for google-translate, using java crawler google param
 
+## Note
+<p>Maven release cannot be repeated, so release should be serious!!!</p>
+<p>This project version 1.0.1 happen version update problem, forget update pom and update jar on maven repository. It let travis ci cannot deploy jar to maven repository </p>
+
+
 ## Reference
 * [google-translate-php](https://github.com/Stichoza/google-translate-php ""): google-translate-php

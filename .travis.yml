@@ -13,7 +13,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: mvn clean deploy -P release --settings .travis.settings.xml
+  script: mvn clean install deploy -P release --settings .travis.settings.xml
   on:
     tags: true
 env:
