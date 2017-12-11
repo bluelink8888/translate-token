@@ -1,6 +1,9 @@
 Google Translate-token [![Build Status](https://travis-ci.org/bluelink8888/translate-token.svg?branch=master)](https://travis-ci.org/bluelink8888/translate-token) 
 ## Overview
-This project target is produce token for google-translate, using java crawler google param
+<p>This project target is produce token for google-translate, using java crawler google param.</p>
+<p>If u want get token just need init TokenImpl once, and use getToken method and your target being method param.
+This method will return param tk, is one param of google translate url.
+</p>
 
 ## Note
 <p>Maven release cannot be repeated, so release should be serious!!!</p>
