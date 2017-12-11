@@ -21,8 +21,10 @@ public class TranslateImpl implements Translate {
   private static Token tokenImpl;
   
   public static TranslateImpl create(){
-    // Initial token
-    tokenImpl = new TokenImpl();
+    // Initial token, token just need get once
+    if(tokenImpl==null){
+      tokenImpl = new TokenImpl();
+    }
     return new TranslateImpl();
   }
   

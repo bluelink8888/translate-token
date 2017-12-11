@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.github.bluelink8888.constant.Language;
 import com.github.bluelink8888.translate.Token;
+import com.github.bluelink8888.translate.Translate;
 import com.github.bluelink8888.translate.impl.TokenImpl;
 import com.github.bluelink8888.translate.impl.TranslateImpl;
 
@@ -28,6 +29,8 @@ public class TranslateTest {
 
   private Token tokenImpl;
   
+  private Translate tranlsateImpl;
+  
   private String failure;
 
   /**
@@ -36,6 +39,7 @@ public class TranslateTest {
   @Before
   public void beforeTest() {
     tokenImpl = new TokenImpl();
+    tranlsateImpl = TranslateImpl.create();
     failure = "failure";
   }
 
@@ -81,8 +85,8 @@ public class TranslateTest {
   public void translateMethodTest(){
     String target = "test";
 
-    Assert.assertEquals(TranslateImpl.create().translate(target), 
-        TranslateImpl.create().translate(target, Language.ENGLISH, Language.TRADITIONAL_CHINESE));
+    Assert.assertEquals(tranlsateImpl.translate(target), 
+        tranlsateImpl.translate(target, Language.ENGLISH, Language.TRADITIONAL_CHINESE));
   }
   
   
