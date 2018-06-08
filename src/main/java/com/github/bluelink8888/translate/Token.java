@@ -75,8 +75,9 @@ public abstract class Token {
 
     List<Long> result = new ArrayList<Long>();
 
-    // Split String from google website
-    for (int i = (tkks.length - 1); i >= 0; i--) {
+    // Split String from google website, because google add version so tkk array have 4 elements
+    // Change index only get first 3 of this array
+    for (int i = 2; i >= 0; i--) {
       long temp = 0;
       if (i == 2) {
         temp = Long.parseLong(tkks[i].substring(tkks[i].indexOf(" ") + 1,
@@ -87,7 +88,7 @@ public abstract class Token {
         result.add(temp);
       }
     }
-
+    
     return result;
   }
 

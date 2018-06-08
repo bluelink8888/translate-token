@@ -8,7 +8,7 @@ This method will return param tk, is one param of google translate url.
 ## Note
 <p>Maven release cannot be repeated, so release should be serious!!!</p>
 <p>This project version 1.0.1 happen version update problem, forget update pom and update jar on maven repository. It let travis ci cannot deploy jar to maven repository </p>
-
+<p>version 1.0.3 Fix token generator problem. This problem was index problem, Cause google add version information on tk param.
 
 ## Reference
 * [google-translate-php](https://github.com/Stichoza/google-translate-php ""): google-translate-php
