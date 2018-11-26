@@ -50,7 +50,7 @@ public class TokenImpl extends Token{
     }
     
     long tkk1 = tkArray.get(0);
-    long tkk2 = tkArray.get(1) + tkArray.get(2);
+    long tkk2 = tkArray.get(1);
     
     long a = tkk1;
     

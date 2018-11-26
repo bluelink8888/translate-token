@@ -65,28 +65,17 @@ public abstract class Token {
       }
 
       String target = sb.toString();
-      tkk = target.substring(target.indexOf("TKK="),
-          target.indexOf("WEB_TRANSLATION_PATH") - 1);
+      tkk = target.substring(target.indexOf("TKK=") + 5,
+          target.indexOf("VERSION_LABEL") - 2);
     } else {
       System.out.println("failure");
     }
 
-    String[] tkks = tkk.split(";");
-
+    String[] tkks = tkk.split("\\.");
     List<Long> result = new ArrayList<Long>();
-
-    // Split String from google website, because google add version so tkk array have 4 elements
-    // Change index only get first 3 of this array
-    for (int i = 2; i >= 0; i--) {
-      long temp = 0;
-      if (i == 2) {
-        temp = Long.parseLong(tkks[i].substring(tkks[i].indexOf(" ") + 1,
-            tkks[i].indexOf("+")));
-        result.add(temp);
-      } else {
-        temp = Long.parseLong(tkks[i].substring(tkks[i].indexOf("x3d") + 3));
-        result.add(temp);
-      }
+    
+    for(String p : tkks){
+      result.add(Long.parseLong(p));
     }
     
     return result;
