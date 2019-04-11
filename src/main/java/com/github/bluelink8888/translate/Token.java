@@ -65,8 +65,8 @@ public abstract class Token {
       }
 
       String target = sb.toString();
-      tkk = target.substring(target.indexOf("TKK=") + 5,
-          target.indexOf("VERSION_LABEL") - 2);
+      int tkkindex = target.indexOf("tkk:") + 5;
+      tkk = target.substring(tkkindex , target.indexOf("'", tkkindex));
     } else {
       System.out.println("failure");
     }
