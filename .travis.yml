@@ -7,9 +7,7 @@ addons:
     packages:
     - oracle-java8-installer
 dist: trusty
-script:
-  - mvn cobertura:cobertura
-  - travis_wait 360 mvn clean test -U
+script: travis_wait 360 mvn cobertura:cobertura clean test -U
 after_success: - bash <(curl -s https://codecov.io/bash)
 before_deploy:
 - gpg --import .travis.key.gpg
