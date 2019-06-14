@@ -6,6 +6,7 @@ addons:
   apt:
     packages:
     - oracle-java8-installer
+dist: trusty
 script:
   - mvn cobertura:cobertura
   - travis_wait 360 mvn clean test -U
