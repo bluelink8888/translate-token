@@ -6,7 +6,10 @@ addons:
   apt:
     packages:
     - oracle-java8-installer
-script: travis_wait 360 mvn clean test -U
+script:
+  - mvn cobertura:cobertura
+  - travis_wait 360 mvn clean test -U
+after_success: - bash <(curl -s https://codecov.io/bash)
 before_deploy:
 - gpg --import .travis.key.gpg
 - mvn versions:set -DnewVersion=${TRAVIS_TAG}
