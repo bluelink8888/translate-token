@@ -24,7 +24,11 @@ public abstract class Token {
   private List<Long> tkArray;
 
   public Token() {
-    tkArray = this.getGoogleArray();
+    while(true) {
+      tkArray = this.getGoogleArray();
+      if (tkArray!= null && tkArray.size() > 0)
+        break;
+    }
   }
 
   /**
@@ -65,19 +69,23 @@ public abstract class Token {
       }
 
       String target = sb.toString();
-      int tkkindex = target.indexOf("tkk:") + 5;
-      tkk = target.substring(tkkindex , target.indexOf("'", tkkindex));
+      if (target.contains("tkk:")){
+        int tkkindex = target.indexOf("tkk:") + 5;
+        tkk = target.substring(tkkindex , target.indexOf("'", tkkindex));
+      }
     } else {
       System.out.println("failure");
     }
 
-    String[] tkks = tkk.split("\\.");
     List<Long> result = new ArrayList<Long>();
-    
-    for(String p : tkks){
-      result.add(Long.parseLong(p));
+    if (tkk != null){
+      String[] tkks = tkk.split("\\.");
+
+
+      for(String p : tkks){
+        result.add(Long.parseLong(p));
+      }
     }
-    
     return result;
   }
 
