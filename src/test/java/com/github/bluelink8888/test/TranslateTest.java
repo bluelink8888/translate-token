@@ -11,6 +11,7 @@ import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -131,6 +132,8 @@ public class TranslateTest {
         }
         result = sb.toString().substring(4, sb.toString().indexOf(",")-1);
       } else {
+        System.out.println("Http status code : " + resp.getStatusLine().getStatusCode());
+        System.out.println(EntityUtils.toString(resp.getEntity()));
         result = failure;
       }
     } catch (Exception e) {
