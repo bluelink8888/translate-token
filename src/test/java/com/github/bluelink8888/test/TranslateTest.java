@@ -59,26 +59,26 @@ public class TranslateTest {
   /**
    * Test translate work or not
    */
-  @Test
+//  @Test
   public void translateTest() {
 
     String target = "no problem";
     String result = this.translate(target, Language.ENGLISH, Language.TRADITIONAL_CHINESE);
     Assert.assertNotEquals(failure, result);
   }
-  
-  
+
+
   /**
    * Test all Language can translate
    */
-  @Test
+//  @Test
   public void translateLanguage(){
     String target = "test";
     for(Language language : Language.values()){
       Assert.assertNotEquals(failure, this.translate(target, Language.ENGLISH, language));
     }
   }
-  
+
   /**
    * Test default method will return same result with implement method
    */
