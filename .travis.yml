@@ -7,9 +7,6 @@ addons:
     packages:
     - oracle-java8-installer
 dist: trusty
-cache:
-  directories:
-    - $HOME/.m2
 script: travis_wait 360 mvn clean test -U
 before_deploy:
 - gpg --import .travis.key.gpg

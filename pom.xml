@@ -51,6 +51,13 @@
     </dependency>
   </dependencies>
 
+  <repositories>
+    <repository>
+      <id>mvn-central</id>
+      <name>mvn-central</name>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
   <!-- for maven -->
   <build>
     <plugins>
